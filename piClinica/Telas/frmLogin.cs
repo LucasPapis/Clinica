@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace piClinica
 {
-    public partial class frmAgendamento : Form
+    public partial class frmLogin : Form
     {
-        public frmAgendamento()
+        public frmLogin()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace piClinica
 {
-    public partial class frmPrincipal : Form
+    public partial class frmPacientes : Form
     {
-        public frmPrincipal()
+        public frmPacientes()
         {
             InitializeComponent();
         }
