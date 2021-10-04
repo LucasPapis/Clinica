@@ -14,6 +14,7 @@ namespace piClinica
 {
     public partial class frmLogin : Form
     {
+        private frmPrincipal _principal;
         public frmLogin()
         {
             InitializeComponent();

@@ -13,7 +13,7 @@ namespace piClinica.Classes
     public class Usuario
     {
         #region Variáveis
-        private int _id_user;
+        private int _id_usuario;
         private string _user;
         private string _senha;
         /*private string _nome;
@@ -23,10 +23,10 @@ namespace piClinica.Classes
         #endregion
 
         #region Propriedades
-        public int Id_user
+        public int Id_usuario
         {
-            get { return _id_user; }
-            set { _id_user = value; }
+            get { return _id_usuario; }
+            set { _id_usuario = value; }
         }
         public string User
         {
@@ -43,14 +43,14 @@ namespace piClinica.Classes
         #region Construtores
         public Usuario()
         {
-            Id_user = 0;
+            Id_usuario = 0;
             User = string.Empty;
             Senha = string.Empty;
 
         }
         public Usuario(int id_user, string user, string senha)
         {
-            Id_user = id_user;
+            Id_usuario = id_user;
             User = user;
             Senha = senha;
         }
@@ -59,7 +59,7 @@ namespace piClinica.Classes
         #region Métodos
         public static Usuario FazLogin(string user, string senha )
         {
-            string query = "SELECT * FROM Usuarios WHERE user = '"+user+"'";
+            string query = "SELECT * FROM usuario WHERE user = '"+user+"'";
             Conexao cn = new Conexao(query);
             try
             {
@@ -70,7 +70,7 @@ namespace piClinica.Classes
                     Usuario usuLogin = new Usuario();
                     while (cn.dr.Read())
                     {
-                        usuLogin = new Usuario(Convert.ToInt32(cn.dr["id_user"]),cn.dr["user"].ToString(), cn.dr["senha"].ToString());
+                        usuLogin = new Usuario(Convert.ToInt32(cn.dr["id_usuario"]),cn.dr["user"].ToString(), cn.dr["senha"].ToString());
                     }
                     if (usuLogin.User == user && usuLogin.Senha == senha)
                     {

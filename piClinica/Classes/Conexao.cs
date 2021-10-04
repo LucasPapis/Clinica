@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Data;
 
 namespace piClinica.Classes
@@ -11,18 +11,18 @@ namespace piClinica.Classes
     class Conexao
     {
         #region Variáveis
-        public static string _conexao = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\dbTeste.mdf;Integrated Security=True";
-        SqlConnection conexao = new SqlConnection(_conexao);
-        public SqlCommand cmd;
-        public SqlDataReader dr;
-        public SqlDataAdapter da;
+        public static string _conexao = @"Server=localhost;Database=db_clinica;Uid=clinica;Pwd='dbClinicapi';Sslmode=none;";
+        public MySqlConnection conexao = new MySqlConnection(_conexao);
+        public MySqlCommand cmd;
+        public MySqlDataReader dr;
+        public MySqlDataAdapter da;
         public DataSet ds;
         #endregion
 
         public Conexao(string query)
         {
-            cmd = new SqlCommand(query, conexao);
-            da = new SqlDataAdapter(query, conexao);
+            cmd = new MySqlCommand(query, conexao);
+            da = new MySqlDataAdapter(query, conexao);
             ds = new DataSet();
         }
         #region Métodos
