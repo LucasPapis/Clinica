@@ -58,6 +58,7 @@ namespace piClinica
             // 
             this.txtSenha.Location = new System.Drawing.Point(91, 175);
             this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '•';
             this.txtSenha.Size = new System.Drawing.Size(182, 20);
             this.txtSenha.TabIndex = 2;
             // 

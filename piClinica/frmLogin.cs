@@ -14,11 +14,25 @@ namespace piClinica
 {
     public partial class frmLogin : Form
     {
-        private frmPrincipal _principal;
+        Usuario usuLogado = new Usuario();
+
+        public Usuario UsuLogado
+        {
+            set { usuLogado = value; }
+            get { return usuLogado; }
+        }
+
+        public frmLogin(Usuario usu)
+        {
+            InitializeComponent();
+            usuLogado = usu;
+        }
+
         public frmLogin()
         {
             InitializeComponent();
         }
+
         private Boolean VerificaVazio()
         {
             if (txtUser.Text == string.Empty)
@@ -44,8 +58,8 @@ namespace piClinica
                 {
                     string senhaCrypto = Crypto.sha256encrypt(txtSenha.Text);
                     senhaCrypto = senhaCrypto.ToUpper();
-                    Usuario.FazLogin(txtUser.Text, senhaCrypto);
-                    frmPrincipal p = new frmPrincipal();
+                    usuLogado = Usuario.FazLogin(txtUser.Text, senhaCrypto);
+                    frmPrincipal p = new frmPrincipal(usuLogado);
                     p.Show();
                    
                 }
