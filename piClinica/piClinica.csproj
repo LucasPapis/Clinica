@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Classes\Conexao.cs" />
     <Compile Include="Classes\Crypto.cs" />
+    <Compile Include="Classes\Paciente.cs" />
     <Compile Include="Classes\Usuario.cs" />
     <Compile Include="frmAgendamentos.cs">
       <SubType>Form</SubType>

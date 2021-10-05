@@ -16,6 +16,7 @@ namespace piClinica.Classes
         private int _id_usuario;
         private string _user;
         private string _senha;
+        private int _ativo;
         /*private string _nome;
         private string _endereco;
         private string _cpf;
@@ -38,6 +39,11 @@ namespace piClinica.Classes
             get { return _senha; }
             set { _senha = value; }
         }
+        public int Ativo
+        {
+            get { return _ativo; }
+            set { _ativo = value; }
+        }
         #endregion
 
         #region Construtores
@@ -48,16 +54,24 @@ namespace piClinica.Classes
             Senha = string.Empty;
 
         }
-        public Usuario(int id_user, string user, string senha)
+        public Usuario(int id_user, string user, string senha, int ativo)
         {
             Id_usuario = id_user;
             User = user;
             Senha = senha;
+            Ativo = ativo;
         }
+        public Usuario(string user, string senha, int ativo)
+        {
+            User = user;
+            Senha = senha;
+            Ativo = ativo;
+        }
+
         #endregion
-        
+
         #region Métodos
-        public static Usuario FazLogin(string user, string senha )
+        public static Usuario FazLogin(string user, string senha)
         {
             string query = "SELECT * FROM usuario WHERE user = '"+user+"'";
             Conexao cn = new Conexao(query);
@@ -70,16 +84,24 @@ namespace piClinica.Classes
                     Usuario usuLogin = new Usuario();
                     while (cn.dr.Read())
                     {
-                        usuLogin = new Usuario(Convert.ToInt32(cn.dr["id_usuario"]),cn.dr["user"].ToString(), cn.dr["senha"].ToString());
+                        usuLogin = new Usuario(cn.dr["user"].ToString(), cn.dr["senha"].ToString(), Convert.ToInt32(cn.dr["ativo"]));
                     }
-                    if (usuLogin.User == user && usuLogin.Senha == senha)
+                    if (usuLogin.Ativo == 0 )
                     {
-                        return usuLogin;
+                        throw new Exception("Usuário desativado ou não existe");
                     }
                     else
                     {
-                        throw new Exception("Usuario ou senha inválidos");
+                        if (usuLogin.User == user && usuLogin.Senha == senha)
+                        {
+                            return usuLogin;
+                        }
+                        else
+                        {
+                            throw new Exception("Usuário ou senha inválidos");
+                        }
                     }
+                    
                 }
                 else
                 {
