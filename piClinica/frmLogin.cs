@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using piClinica.Classes;
+using System;
 using System.Windows.Forms;
-using piClinica.Classes;
-using System.IO;
 
 namespace piClinica
 {
@@ -60,8 +52,10 @@ namespace piClinica
                     senhaCrypto = senhaCrypto.ToUpper();
                     usuLogado = Usuario.FazLogin(txtUser.Text, senhaCrypto);
                     frmPrincipal p = new frmPrincipal(usuLogado);
-                    p.Show();
-                   
+                    p.ShowDialog();
+                    
+
+
                 }
                 catch (Exception erro)
                 {
@@ -69,6 +63,7 @@ namespace piClinica
                     MessageBox.Show(erro.Message, "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+            
         }
     }
 }

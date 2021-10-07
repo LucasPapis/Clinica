@@ -31,18 +31,21 @@ namespace piClinica
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.gpbDados = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtPlanoSaude = new System.Windows.Forms.TextBox();
-            this.txtAltura = new System.Windows.Forms.TextBox();
+            this.txtConvenioP = new System.Windows.Forms.TextBox();
+            this.txtAlturaP = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtPeso = new System.Windows.Forms.TextBox();
+            this.txtPesoP = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.cbbSexo = new System.Windows.Forms.ComboBox();
-            this.mskTel = new System.Windows.Forms.MaskedTextBox();
+            this.cbbSexoP = new System.Windows.Forms.ComboBox();
+            this.mskTelP = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.mskRg = new System.Windows.Forms.MaskedTextBox();
+            this.mskRgP = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.mskNascP = new System.Windows.Forms.MaskedTextBox();
             this.mskCpfP = new System.Windows.Forms.MaskedTextBox();
@@ -50,13 +53,13 @@ namespace piClinica
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtEnderecoP = new System.Windows.Forms.TextBox();
-            this.txtNomep = new System.Windows.Forms.TextBox();
+            this.txtSobrenomeP = new System.Windows.Forms.TextBox();
+            this.txtNomeP = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnIserir = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPacientes = new System.Windows.Forms.DataGridView();
             this.txtCep = new System.Windows.Forms.TextBox();
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -71,7 +74,7 @@ namespace piClinica
             this.label11 = new System.Windows.Forms.Label();
             this.txtNumero = new System.Windows.Forms.TextBox();
             this.gpbDados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,16 +91,17 @@ namespace piClinica
             // 
             // gpbDados
             // 
+            this.gpbDados.Controls.Add(this.label15);
             this.gpbDados.Controls.Add(this.label10);
-            this.gpbDados.Controls.Add(this.txtPlanoSaude);
-            this.gpbDados.Controls.Add(this.txtAltura);
+            this.gpbDados.Controls.Add(this.txtConvenioP);
+            this.gpbDados.Controls.Add(this.txtAlturaP);
             this.gpbDados.Controls.Add(this.label9);
-            this.gpbDados.Controls.Add(this.txtPeso);
+            this.gpbDados.Controls.Add(this.txtPesoP);
             this.gpbDados.Controls.Add(this.label8);
-            this.gpbDados.Controls.Add(this.cbbSexo);
-            this.gpbDados.Controls.Add(this.mskTel);
+            this.gpbDados.Controls.Add(this.cbbSexoP);
+            this.gpbDados.Controls.Add(this.mskTelP);
             this.gpbDados.Controls.Add(this.label7);
-            this.gpbDados.Controls.Add(this.mskRg);
+            this.gpbDados.Controls.Add(this.mskRgP);
             this.gpbDados.Controls.Add(this.label6);
             this.gpbDados.Controls.Add(this.mskNascP);
             this.gpbDados.Controls.Add(this.mskCpfP);
@@ -105,8 +109,8 @@ namespace piClinica
             this.gpbDados.Controls.Add(this.label4);
             this.gpbDados.Controls.Add(this.label3);
             this.gpbDados.Controls.Add(this.label2);
-            this.gpbDados.Controls.Add(this.txtEnderecoP);
-            this.gpbDados.Controls.Add(this.txtNomep);
+            this.gpbDados.Controls.Add(this.txtSobrenomeP);
+            this.gpbDados.Controls.Add(this.txtNomeP);
             this.gpbDados.Location = new System.Drawing.Point(8, 45);
             this.gpbDados.Name = "gpbDados";
             this.gpbDados.Size = new System.Drawing.Size(269, 242);
@@ -114,28 +118,37 @@ namespace piClinica
             this.gpbDados.TabStop = false;
             this.gpbDados.Text = "Dados Pessoais";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(143, 200);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(34, 13);
+            this.label15.TabIndex = 33;
+            this.label15.Text = "Sexo:";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(3, 200);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 13);
+            this.label10.Size = new System.Drawing.Size(55, 13);
             this.label10.TabIndex = 32;
-            this.label10.Text = "Plano de saúde:";
+            this.label10.Text = "Convênio:";
             // 
-            // txtPlanoSaude
+            // txtConvenioP
             // 
-            this.txtPlanoSaude.Location = new System.Drawing.Point(6, 216);
-            this.txtPlanoSaude.Name = "txtPlanoSaude";
-            this.txtPlanoSaude.Size = new System.Drawing.Size(109, 20);
-            this.txtPlanoSaude.TabIndex = 31;
+            this.txtConvenioP.Location = new System.Drawing.Point(6, 216);
+            this.txtConvenioP.Name = "txtConvenioP";
+            this.txtConvenioP.Size = new System.Drawing.Size(109, 20);
+            this.txtConvenioP.TabIndex = 31;
             // 
-            // txtAltura
+            // txtAlturaP
             // 
-            this.txtAltura.Location = new System.Drawing.Point(144, 171);
-            this.txtAltura.Name = "txtAltura";
-            this.txtAltura.Size = new System.Drawing.Size(63, 20);
-            this.txtAltura.TabIndex = 30;
+            this.txtAlturaP.Location = new System.Drawing.Point(144, 171);
+            this.txtAlturaP.Name = "txtAlturaP";
+            this.txtAlturaP.Size = new System.Drawing.Size(63, 20);
+            this.txtAlturaP.TabIndex = 30;
             // 
             // label9
             // 
@@ -146,12 +159,12 @@ namespace piClinica
             this.label9.TabIndex = 29;
             this.label9.Text = "Altura:";
             // 
-            // txtPeso
+            // txtPesoP
             // 
-            this.txtPeso.Location = new System.Drawing.Point(6, 171);
-            this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(63, 20);
-            this.txtPeso.TabIndex = 28;
+            this.txtPesoP.Location = new System.Drawing.Point(6, 171);
+            this.txtPesoP.Name = "txtPesoP";
+            this.txtPesoP.Size = new System.Drawing.Size(63, 20);
+            this.txtPesoP.TabIndex = 28;
             // 
             // label8
             // 
@@ -162,25 +175,24 @@ namespace piClinica
             this.label8.TabIndex = 27;
             this.label8.Text = "Peso:";
             // 
-            // cbbSexo
+            // cbbSexoP
             // 
-            this.cbbSexo.FormattingEnabled = true;
-            this.cbbSexo.Items.AddRange(new object[] {
-            "Sexo",
+            this.cbbSexoP.FormattingEnabled = true;
+            this.cbbSexoP.Items.AddRange(new object[] {
             "Masculino",
             "Feminino"});
-            this.cbbSexo.Location = new System.Drawing.Point(144, 209);
-            this.cbbSexo.Name = "cbbSexo";
-            this.cbbSexo.Size = new System.Drawing.Size(109, 21);
-            this.cbbSexo.TabIndex = 26;
+            this.cbbSexoP.Location = new System.Drawing.Point(144, 215);
+            this.cbbSexoP.Name = "cbbSexoP";
+            this.cbbSexoP.Size = new System.Drawing.Size(109, 21);
+            this.cbbSexoP.TabIndex = 26;
             // 
-            // mskTel
+            // mskTelP
             // 
-            this.mskTel.Location = new System.Drawing.Point(144, 127);
-            this.mskTel.Mask = "(00) 00000-0000";
-            this.mskTel.Name = "mskTel";
-            this.mskTel.Size = new System.Drawing.Size(88, 20);
-            this.mskTel.TabIndex = 25;
+            this.mskTelP.Location = new System.Drawing.Point(144, 127);
+            this.mskTelP.Mask = "(00) 00000-0000";
+            this.mskTelP.Name = "mskTelP";
+            this.mskTelP.Size = new System.Drawing.Size(88, 20);
+            this.mskTelP.TabIndex = 25;
             // 
             // label7
             // 
@@ -191,13 +203,13 @@ namespace piClinica
             this.label7.TabIndex = 24;
             this.label7.Text = "Telefone:";
             // 
-            // mskRg
+            // mskRgP
             // 
-            this.mskRg.Location = new System.Drawing.Point(146, 82);
-            this.mskRg.Mask = "00.00.000-0";
-            this.mskRg.Name = "mskRg";
-            this.mskRg.Size = new System.Drawing.Size(70, 20);
-            this.mskRg.TabIndex = 23;
+            this.mskRgP.Location = new System.Drawing.Point(146, 82);
+            this.mskRgP.Mask = "00.000.000-0";
+            this.mskRgP.Name = "mskRgP";
+            this.mskRgP.Size = new System.Drawing.Size(70, 20);
+            this.mskRgP.TabIndex = 23;
             // 
             // label6
             // 
@@ -261,19 +273,19 @@ namespace piClinica
             this.label2.TabIndex = 16;
             this.label2.Text = "CPF:";
             // 
-            // txtEnderecoP
+            // txtSobrenomeP
             // 
-            this.txtEnderecoP.Location = new System.Drawing.Point(144, 39);
-            this.txtEnderecoP.Name = "txtEnderecoP";
-            this.txtEnderecoP.Size = new System.Drawing.Size(109, 20);
-            this.txtEnderecoP.TabIndex = 15;
+            this.txtSobrenomeP.Location = new System.Drawing.Point(144, 39);
+            this.txtSobrenomeP.Name = "txtSobrenomeP";
+            this.txtSobrenomeP.Size = new System.Drawing.Size(109, 20);
+            this.txtSobrenomeP.TabIndex = 15;
             // 
-            // txtNomep
+            // txtNomeP
             // 
-            this.txtNomep.Location = new System.Drawing.Point(6, 39);
-            this.txtNomep.Name = "txtNomep";
-            this.txtNomep.Size = new System.Drawing.Size(83, 20);
-            this.txtNomep.TabIndex = 14;
+            this.txtNomeP.Location = new System.Drawing.Point(6, 39);
+            this.txtNomeP.Name = "txtNomeP";
+            this.txtNomeP.Size = new System.Drawing.Size(83, 20);
+            this.txtNomeP.TabIndex = 14;
             // 
             // button1
             // 
@@ -310,29 +322,18 @@ namespace piClinica
             this.btnIserir.TabIndex = 18;
             this.btnIserir.Text = "Inserir";
             this.btnIserir.UseVisualStyleBackColor = true;
+            this.btnIserir.Click += new System.EventHandler(this.btnIserir_Click);
             // 
-            // dataGridView1
+            // dgvPacientes
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPacientes.AllowUserToAddRows = false;
+            this.dgvPacientes.AllowUserToDeleteRows = false;
+            this.dgvPacientes.AllowUserToResizeColumns = false;
+            this.dgvPacientes.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 325);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dgvPacientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvPacientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPacientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -340,10 +341,36 @@ namespace piClinica
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(653, 261);
-            this.dataGridView1.TabIndex = 22;
+            this.dgvPacientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPacientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPacientes.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvPacientes.Location = new System.Drawing.Point(8, 325);
+            this.dgvPacientes.MultiSelect = false;
+            this.dgvPacientes.Name = "dgvPacientes";
+            this.dgvPacientes.ReadOnly = true;
+            this.dgvPacientes.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dgvPacientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPacientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvPacientes.RowHeadersVisible = false;
+            this.dgvPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPacientes.Size = new System.Drawing.Size(650, 261);
+            this.dgvPacientes.TabIndex = 22;
+            this.dgvPacientes.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPacientes_RowEnter);
             // 
             // txtCep
             // 
@@ -497,7 +524,7 @@ namespace piClinica
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 598);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvPacientes);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
@@ -506,9 +533,10 @@ namespace piClinica
             this.Controls.Add(this.label1);
             this.Name = "frmPacientes";
             this.Text = "frmPacientes";
+            this.Load += new System.EventHandler(this.frmPacientes_Load);
             this.gpbDados.ResumeLayout(false);
             this.gpbDados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -526,24 +554,24 @@ namespace piClinica
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtEnderecoP;
-        private System.Windows.Forms.TextBox txtNomep;
+        private System.Windows.Forms.TextBox txtSobrenomeP;
+        private System.Windows.Forms.TextBox txtNomeP;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnIserir;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.MaskedTextBox mskRg;
+        private System.Windows.Forms.DataGridView dgvPacientes;
+        private System.Windows.Forms.MaskedTextBox mskRgP;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.MaskedTextBox mskTel;
+        private System.Windows.Forms.MaskedTextBox mskTelP;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbbSexo;
+        private System.Windows.Forms.ComboBox cbbSexoP;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtPeso;
-        private System.Windows.Forms.TextBox txtAltura;
+        private System.Windows.Forms.TextBox txtPesoP;
+        private System.Windows.Forms.TextBox txtAlturaP;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtPlanoSaude;
+        private System.Windows.Forms.TextBox txtConvenioP;
         private System.Windows.Forms.TextBox txtCep;
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.Label label18;
@@ -557,5 +585,6 @@ namespace piClinica
         private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.TextBox txtComple;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
     }
 }

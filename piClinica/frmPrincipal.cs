@@ -14,7 +14,7 @@ namespace piClinica
 {
     public partial class frmPrincipal : Form
     {
-        Usuario usuLogado;
+        private Usuario usuLogado;
         public frmPrincipal(Usuario usu)
         {
             InitializeComponent();
@@ -26,13 +26,7 @@ namespace piClinica
             lblUsuLogado.Text = usuLogado.User.ToUpper();
             lblUsuLogado.Visible = true;
         }
-        private void pacientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmPacientes p = new frmPacientes();
-            p.Show();
 
-
-        }
         private void agendmentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAgendamentos a = new frmAgendamentos();
@@ -45,5 +39,11 @@ namespace piClinica
             m.Show();
         }
 
+        private void pacientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPacientes p = new frmPacientes(usuLogado);
+            p.ShowDialog();
+
+        }
     }
 }
