@@ -29,10 +29,10 @@ namespace piClinica
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.gpbDados = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -55,7 +55,6 @@ namespace piClinica
             this.label2 = new System.Windows.Forms.Label();
             this.txtSobrenomeP = new System.Windows.Forms.TextBox();
             this.txtNomeP = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnIserir = new System.Windows.Forms.Button();
@@ -73,9 +72,19 @@ namespace piClinica
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNumero = new System.Windows.Forms.TextBox();
+            this.txtIdP = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtBuscaC = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtBuscaRg = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
             this.gpbDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -99,21 +108,21 @@ namespace piClinica
             this.gpbDados.Controls.Add(this.txtPesoP);
             this.gpbDados.Controls.Add(this.label8);
             this.gpbDados.Controls.Add(this.cbbSexoP);
+            this.gpbDados.Controls.Add(this.mskNascP);
+            this.gpbDados.Controls.Add(this.label4);
             this.gpbDados.Controls.Add(this.mskTelP);
             this.gpbDados.Controls.Add(this.label7);
             this.gpbDados.Controls.Add(this.mskRgP);
             this.gpbDados.Controls.Add(this.label6);
-            this.gpbDados.Controls.Add(this.mskNascP);
             this.gpbDados.Controls.Add(this.mskCpfP);
             this.gpbDados.Controls.Add(this.label5);
-            this.gpbDados.Controls.Add(this.label4);
             this.gpbDados.Controls.Add(this.label3);
             this.gpbDados.Controls.Add(this.label2);
             this.gpbDados.Controls.Add(this.txtSobrenomeP);
             this.gpbDados.Controls.Add(this.txtNomeP);
             this.gpbDados.Location = new System.Drawing.Point(8, 45);
             this.gpbDados.Name = "gpbDados";
-            this.gpbDados.Size = new System.Drawing.Size(269, 242);
+            this.gpbDados.Size = new System.Drawing.Size(269, 274);
             this.gpbDados.TabIndex = 17;
             this.gpbDados.TabStop = false;
             this.gpbDados.Text = "Dados Pessoais";
@@ -177,6 +186,7 @@ namespace piClinica
             // 
             // cbbSexoP
             // 
+            this.cbbSexoP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbSexoP.FormattingEnabled = true;
             this.cbbSexoP.Items.AddRange(new object[] {
             "Masculino",
@@ -222,7 +232,7 @@ namespace piClinica
             // 
             // mskNascP
             // 
-            this.mskNascP.Location = new System.Drawing.Point(6, 82);
+            this.mskNascP.Location = new System.Drawing.Point(6, 127);
             this.mskNascP.Mask = "00/00/0000";
             this.mskNascP.Name = "mskNascP";
             this.mskNascP.Size = new System.Drawing.Size(63, 20);
@@ -231,7 +241,7 @@ namespace piClinica
             // 
             // mskCpfP
             // 
-            this.mskCpfP.Location = new System.Drawing.Point(6, 127);
+            this.mskCpfP.Location = new System.Drawing.Point(6, 82);
             this.mskCpfP.Mask = "000.000.000-00";
             this.mskCpfP.Name = "mskCpfP";
             this.mskCpfP.Size = new System.Drawing.Size(82, 20);
@@ -249,7 +259,7 @@ namespace piClinica
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 66);
+            this.label4.Location = new System.Drawing.Point(3, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 18;
@@ -267,7 +277,7 @@ namespace piClinica
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 111);
+            this.label2.Location = new System.Drawing.Point(5, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 16;
@@ -287,36 +297,29 @@ namespace piClinica
             this.txtNomeP.Size = new System.Drawing.Size(83, 20);
             this.txtNomeP.TabIndex = 14;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(282, 195);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 23);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Mercar retorno";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(282, 264);
+            this.btnExcluir.Location = new System.Drawing.Point(283, 296);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 23);
             this.btnExcluir.TabIndex = 20;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(282, 136);
+            this.btnAlterar.Location = new System.Drawing.Point(283, 172);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(100, 23);
             this.btnAlterar.TabIndex = 19;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnIserir
             // 
-            this.btnIserir.Location = new System.Drawing.Point(282, 68);
+            this.btnIserir.Location = new System.Drawing.Point(283, 52);
             this.btnIserir.Name = "btnIserir";
             this.btnIserir.Size = new System.Drawing.Size(100, 23);
             this.btnIserir.TabIndex = 18;
@@ -330,42 +333,42 @@ namespace piClinica
             this.dgvPacientes.AllowUserToDeleteRows = false;
             this.dgvPacientes.AllowUserToResizeColumns = false;
             this.dgvPacientes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvPacientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvPacientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvPacientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPacientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPacientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPacientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPacientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPacientes.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPacientes.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvPacientes.Location = new System.Drawing.Point(8, 325);
             this.dgvPacientes.MultiSelect = false;
             this.dgvPacientes.Name = "dgvPacientes";
             this.dgvPacientes.ReadOnly = true;
             this.dgvPacientes.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgvPacientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPacientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPacientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvPacientes.RowHeadersVisible = false;
             this.dgvPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPacientes.Size = new System.Drawing.Size(650, 261);
@@ -406,6 +409,7 @@ namespace piClinica
             // 
             // cbbEstado
             // 
+            this.cbbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbEstado.FormattingEnabled = true;
             this.cbbEstado.Items.AddRange(new object[] {
             "AC",
@@ -518,14 +522,101 @@ namespace piClinica
             this.txtNumero.Size = new System.Drawing.Size(50, 20);
             this.txtNumero.TabIndex = 34;
             // 
+            // txtIdP
+            // 
+            this.txtIdP.Enabled = false;
+            this.txtIdP.Location = new System.Drawing.Point(10, 12);
+            this.txtIdP.Name = "txtIdP";
+            this.txtIdP.Size = new System.Drawing.Size(37, 20);
+            this.txtIdP.TabIndex = 24;
+            this.txtIdP.Visible = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(3, 28);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(0, 13);
+            this.label17.TabIndex = 26;
+            // 
+            // txtBuscaC
+            // 
+            this.txtBuscaC.Location = new System.Drawing.Point(16, 53);
+            this.txtBuscaC.Name = "txtBuscaC";
+            this.txtBuscaC.Size = new System.Drawing.Size(103, 20);
+            this.txtBuscaC.TabIndex = 25;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.btnBuscar);
+            this.groupBox2.Controls.Add(this.label21);
+            this.groupBox2.Controls.Add(this.txtBuscaRg);
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.txtBuscaC);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Location = new System.Drawing.Point(386, 216);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(263, 103);
+            this.groupBox2.TabIndex = 27;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Busca de Pacientes";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(13, 37);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(84, 13);
+            this.label19.TabIndex = 27;
+            this.label19.Text = "Buscar por CPF:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(125, 37);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(80, 13);
+            this.label21.TabIndex = 30;
+            this.label21.Text = "Buscar por RG:";
+            // 
+            // txtBuscaRg
+            // 
+            this.txtBuscaRg.Location = new System.Drawing.Point(125, 53);
+            this.txtBuscaRg.Name = "txtBuscaRg";
+            this.txtBuscaRg.Size = new System.Drawing.Size(103, 20);
+            this.txtBuscaRg.TabIndex = 29;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Image = global::piClinica.Properties.Resources.finder_16;
+            this.btnBuscar.Location = new System.Drawing.Point(228, 48);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(23, 28);
+            this.btnBuscar.TabIndex = 31;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(9, 28);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(0, 13);
+            this.label20.TabIndex = 32;
+            // 
             // frmPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 598);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.txtIdP);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvPacientes);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnIserir);
@@ -539,6 +630,8 @@ namespace piClinica
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -556,7 +649,6 @@ namespace piClinica
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSobrenomeP;
         private System.Windows.Forms.TextBox txtNomeP;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnIserir;
@@ -586,5 +678,14 @@ namespace piClinica
         private System.Windows.Forms.TextBox txtComple;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtIdP;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtBuscaC;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtBuscaRg;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Label label20;
     }
 }

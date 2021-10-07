@@ -28,9 +28,8 @@ namespace piClinica
         private void frmPacientes_Load(object sender, EventArgs e)
         {
             cbbSexoP.SelectedIndex = 0;
-            cbbEstado.SelectedIndex = 23;
+            cbbEstado.SelectedIndex = 24;
             buscaBanco();
-            LimpaCampos();
         }
 
         //Buscar lista no banco
@@ -40,6 +39,7 @@ namespace piClinica
             //Carregando o Binding para passar pro DataGrid
             listaPacientesDgv = new BindingList<Paciente>(listaPacientes);
             alimentaDgv(listaPacientesDgv);
+            LimpaCampos();
 
         }
         //Metodo para alimentar o dataGrid, recebe a BindingList como parâmetro
@@ -145,6 +145,7 @@ namespace piClinica
     
         private void preencheCampos(int index)
         {
+            txtIdP.Text = listaPacientes[index].Id_paciente.ToString();
             txtNomeP.Text = listaPacientes[index].Nome;
             txtSobrenomeP.Text = listaPacientes[index].Sobrenome;
             mskNascP.Text = listaPacientes[index].Dt_nasc;
@@ -168,13 +169,20 @@ namespace piClinica
         {
             if (ValidaCampos())
             {
-                Endereco en = new Endereco(cbbEstado.Text, txtCidade.Text, txtRua.Text, Convert.ToInt32(txtNumero.Text), txtComple.Text, txtCep.Text);
-                Paciente p = new Paciente(txtNomeP.Text , txtSobrenomeP.Text, mskNascP.Text, mskRgP.Text, mskCpfP.Text, mskTelP.Text,cbbSexoP.Text, txtPesoP.Text, txtAlturaP.Text,txtConvenioP.Text, 1);
-                en.CadastraEnder();
-                p.CadastraPaciente(txtRua.Text, Convert.ToInt32(txtNumero.Text));
-                MessageBox.Show("Paciente cadastrado com sucesso", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtNomeP.Focus();
-                buscaBanco();
+                try
+                {
+                    Endereco en = new Endereco(cbbEstado.Text, txtCidade.Text, txtRua.Text, Convert.ToInt32(txtNumero.Text), txtComple.Text, txtCep.Text);
+                    Paciente p = new Paciente(txtNomeP.Text, txtSobrenomeP.Text, mskNascP.Text, mskRgP.Text, mskCpfP.Text, mskTelP.Text, cbbSexoP.Text, txtPesoP.Text, txtAlturaP.Text, txtConvenioP.Text, 1);
+                    en.CadastraEnder();
+                    p.CadastraPaciente(txtCep.Text, Convert.ToInt32(txtNumero.Text));
+                    MessageBox.Show("Paciente cadastrado com sucesso", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNomeP.Focus();
+                    buscaBanco();
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro: " + erro, string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             
         }
@@ -184,5 +192,59 @@ namespace piClinica
             preencheCampos(e.RowIndex);
         }
 
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            if (ValidaCampos())
+            {
+                try
+                {
+                    Endereco en = new Endereco(cbbEstado.Text, txtCidade.Text, txtRua.Text, Convert.ToInt32(txtNumero.Text), txtComple.Text, txtCep.Text);
+                    Paciente p = new Paciente(Convert.ToInt32(txtIdP.Text), txtNomeP.Text, txtSobrenomeP.Text, mskNascP.Text, mskRgP.Text, mskCpfP.Text, mskTelP.Text, cbbSexoP.Text, txtPesoP.Text, txtAlturaP.Text, txtConvenioP.Text);
+                    en.AlteraEnder();
+                    p.AlteraPaciente();
+                    MessageBox.Show("Paciente Alterado com sucesso", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNomeP.Focus();
+                    buscaBanco();
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro: " + erro, string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+               
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            DialogResult question = MessageBox.Show("Realmente deseja que o paciente seja excluido?","Pacientes", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (question == DialogResult.Yes)
+            {
+                try
+                {
+                    Paciente p = new Paciente();
+                    p.DesativaAtivaPaciente(Convert.ToInt32(txtIdP.Text), 0);
+                    MessageBox.Show("Paciente excluido com sucesso", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNomeP.Focus();
+                    buscaBanco();
+                }
+                catch (Exception error)
+                {
+
+                    MessageBox.Show("Erro: " + error, string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtBuscaC.Text != string.Empty)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
     }
 }
