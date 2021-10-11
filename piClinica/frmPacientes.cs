@@ -64,7 +64,6 @@ namespace piClinica
             dgvPacientes.Columns[15].Visible = false;
             dgvPacientes.Columns[16].Visible = false;
             dgvPacientes.Columns[17].Visible = false;
-            dgvPacientes.Columns[18].Visible = false;
         }
         private Boolean ValidaCampos()
         {
@@ -141,6 +140,7 @@ namespace piClinica
             txtNumero.Text = string.Empty;
             txtRua.Text = string.Empty;
             txtComple.Text = string.Empty;
+            dgvPacientes.ClearSelection();
         }
     
         private void preencheCampos(int index)
@@ -172,16 +172,16 @@ namespace piClinica
                 try
                 {
                     Endereco en = new Endereco(cbbEstado.Text, txtCidade.Text, txtRua.Text, Convert.ToInt32(txtNumero.Text), txtComple.Text, txtCep.Text);
-                    Paciente p = new Paciente(txtNomeP.Text, txtSobrenomeP.Text, mskNascP.Text, mskRgP.Text, mskCpfP.Text, mskTelP.Text, cbbSexoP.Text, txtPesoP.Text, txtAlturaP.Text, txtConvenioP.Text, 1);
+                    Paciente p = new Paciente(txtNomeP.Text, txtSobrenomeP.Text, mskNascP.Text, mskRgP.Text, mskCpfP.Text, mskTelP.Text, cbbSexoP.Text, txtPesoP.Text, txtAlturaP.Text, txtConvenioP.Text);
                     en.CadastraEnder();
                     p.CadastraPaciente(txtCep.Text, Convert.ToInt32(txtNumero.Text));
                     MessageBox.Show("Paciente cadastrado com sucesso", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNomeP.Focus();
                     buscaBanco();
                 }
-                catch (Exception erro)
+                catch (Exception )
                 {
-                    MessageBox.Show("Erro: " + erro, string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Paciente já existe", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             
@@ -222,7 +222,7 @@ namespace piClinica
                 try
                 {
                     Paciente p = new Paciente();
-                    p.DesativaAtivaPaciente(Convert.ToInt32(txtIdP.Text), 0);
+                    p.DeletaPaciente(Convert.ToInt32(txtIdP.Text));
                     MessageBox.Show("Paciente excluido com sucesso", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNomeP.Focus();
                     buscaBanco();
@@ -245,6 +245,11 @@ namespace piClinica
             {
 
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            LimpaCampos();
         }
     }
 }

@@ -105,8 +105,11 @@ namespace piClinica
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(384, 368);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(384, 368);
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -51,11 +51,9 @@ namespace piClinica
                     string senhaCrypto = Crypto.sha256encrypt(txtSenha.Text);
                     senhaCrypto = senhaCrypto.ToUpper();
                     usuLogado = Usuario.FazLogin(txtUser.Text, senhaCrypto);
+                    this.Hide();
                     frmPrincipal p = new frmPrincipal(usuLogado);
-                    p.ShowDialog();
-                    
-
-
+                    p.Show();
                 }
                 catch (Exception erro)
                 {

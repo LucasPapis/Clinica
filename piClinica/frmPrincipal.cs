@@ -25,6 +25,11 @@ namespace piClinica
         {
             lblUsuLogado.Text = usuLogado.User.ToUpper();
             lblUsuLogado.Visible = true;
+            if (usuLogado.Admin == 1)
+            {
+                usuáriosToolStripMenuItem.Visible = true;
+                usuáriosToolStripMenuItem.Enabled = true;
+            }
         }
 
         private void agendmentosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -33,17 +38,28 @@ namespace piClinica
             a.Show();
         }
 
-        private void médicosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmMedico m = new frmMedico();
-            m.Show();
-        }
-
         private void pacientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmPacientes p = new frmPacientes(usuLogado);
             p.ShowDialog();
 
+        }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuarios fu = new frmUsuarios();
+            fu.ShowDialog();
+        }
+
+        private void médicosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMedico m = new frmMedico();
+            m.ShowDialog();
+        }
+
+        private void frmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
