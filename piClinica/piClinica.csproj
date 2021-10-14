@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Agendamento.cs" />
     <Compile Include="Classes\Conexao.cs" />
     <Compile Include="Classes\Crypto.cs" />
     <Compile Include="Classes\Endereco.cs" />

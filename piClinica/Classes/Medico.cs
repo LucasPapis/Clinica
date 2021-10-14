@@ -75,6 +75,25 @@ namespace piClinica
         {
 
         }
+
+        //Busca med na tela de consulta
+        public Medico(int id_medico, string nome, string sobrenome, int crm, string espec)
+        {
+            Id_medico = id_medico;
+            Nome = nome;
+            Sobrenome = sobrenome;
+            Crm = crm;
+            Espec = espec;
+        }
+        //Busca na tela principal
+        public Medico(string nome, string sobrenome, int crm, string espec)
+        {
+            Nome = nome;
+            Sobrenome = sobrenome;
+            Crm = crm;
+            Espec = espec;
+        }
+
         //Login
         public Medico(int crm, string senha)
         {
@@ -170,6 +189,7 @@ namespace piClinica
                 cn.FecharConexao();
             }
         }
+       
         public static List<Medico> BuscaMed()
         {
             List<Medico> listaMed = new List<Medico>();
@@ -207,7 +227,7 @@ namespace piClinica
             }
         }
         //Cadastra o Usuário
-        public void CadastraMed()
+        public void CadastraMed() //Aplicar esse metodo para consulta repetida
         {
             string query = "SELECT * FROM medico WHERE crm='" + Crm + "'";
             Conexao cn = new Conexao(query);

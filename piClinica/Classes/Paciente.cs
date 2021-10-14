@@ -81,7 +81,28 @@ namespace piClinica.Classes
         {
 
         }
-        
+
+        public Paciente(string nome, string sobrenome, string dt_nasc, string sexo)
+        {
+            Nome = nome;
+            Sobrenome = sobrenome;
+            Dt_nasc = dt_nasc;
+            Sexo = sexo;
+        }
+        //Busca na tela de agendamento
+        public Paciente(int id_paciente ,string nome, string sobrenome, string cpf, string rg, string peso, string telefone, string plano_saude, string altura)
+        {
+            Id_paciente = id_paciente;
+            Nome = nome;
+            Sobrenome = sobrenome;
+            Cpf = cpf;
+            Rg = rg;
+            Peso = peso;
+            Telefone = telefone;
+            Plano_saude = plano_saude;
+            Altura = altura;
+        }
+
         //Busca do paciente e endereco do mesmo
         public Paciente(int id_paciente, string nome, string sobrenome, string dt_nasc, string rg, string cpf, string telefone, string sexo, string peso, string altura, string plano_saude, int id_endereco, string estado, string cidade, string rua, int numero, string comple, string cep)
         {
@@ -181,6 +202,41 @@ namespace piClinica.Classes
                 cn.FecharConexao();
             }
         }
+        public static List<Paciente> BuscaPacientesEspe(string nome, string sobrenome, string cpf)
+        {
+            List<Paciente> listaPacientesEspec = new List<Paciente>();
+            string query = "SELECT id_paciente, nome, sobrenome, cpf, rg, peso, telefone, plano_saude, altura FROM paciente WHERE nome LIKE '"+nome+"' OR sobrenome LIKE '"+sobrenome+"' OR cpf = '"+cpf+"'";
+            Conexao cn = new Conexao(query);
+            try
+            {
+                cn.AbreConexao();
+                cn.dr = cn.cmd.ExecuteReader();
+                if (cn.dr.HasRows)
+                {
+                    while (cn.dr.Read())
+                    {
+                        listaPacientesEspec.Add(new Paciente(Convert.ToInt32(cn.dr[0]),
+                            cn.dr[1].ToString(),
+                            cn.dr[2].ToString(),
+                            cn.dr[3].ToString(),
+                            cn.dr[4].ToString(),
+                            cn.dr[5].ToString(),
+                            cn.dr[6].ToString(),
+                            cn.dr[7].ToString(),
+                            cn.dr[8].ToString()));
+                    }
+                }
+                return listaPacientesEspec;
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.ToString());
+            }
+            finally
+            {
+                cn.FecharConexao();
+            }
+        }
 
         //Cadastra o paciente
         public void CadastraPaciente(string cep, int numero)
@@ -240,6 +296,10 @@ namespace piClinica.Classes
             {
 
                 throw new Exception(error.ToString());
+            }
+            finally
+            {
+                cn.FecharConexao();
             }
         }
         /*public int BuscaPacienteCpf(string cpf, string rg)
