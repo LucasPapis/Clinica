@@ -68,61 +68,70 @@
     <Compile Include="Classes\Endereco.cs" />
     <Compile Include="Classes\Paciente.cs" />
     <Compile Include="Classes\Usuario.cs" />
-    <Compile Include="frmAgendamentos.cs">
+    <Compile Include="Telas\frmAgendamentos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAgendamentos.Designer.cs">
+    <Compile Include="Telas\frmAgendamentos.Designer.cs">
       <DependentUpon>frmAgendamentos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="Telas\frmHistorico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
+    <Compile Include="Telas\frmHistorico.Designer.cs">
+      <DependentUpon>frmHistorico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMedico.cs">
+    <Compile Include="Telas\frmMedico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMedico.Designer.cs">
+    <Compile Include="Telas\frmMedico.Designer.cs">
       <DependentUpon>frmMedico.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPacientes.cs">
+    <Compile Include="Telas\frmPacientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPacientes.Designer.cs">
+    <Compile Include="Telas\frmPacientes.Designer.cs">
       <DependentUpon>frmPacientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPrincipal.cs">
+    <Compile Include="Telas\frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrincipal.Designer.cs">
+    <Compile Include="Telas\frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUsuarios.cs">
+    <Compile Include="Telas\frmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUsuarios.Designer.cs">
+    <Compile Include="Telas\frmUsuarios.Designer.cs">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Medico.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAgendamentos.resx">
+    <EmbeddedResource Include="Telas\frmAgendamentos.resx">
       <DependentUpon>frmAgendamentos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Telas\frmHistorico.resx">
+      <DependentUpon>frmHistorico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMedico.resx">
+    <EmbeddedResource Include="Telas\frmMedico.resx">
       <DependentUpon>frmMedico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPacientes.resx">
+    <EmbeddedResource Include="Telas\frmPacientes.resx">
       <DependentUpon>frmPacientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrincipal.resx">
+    <EmbeddedResource Include="Telas\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUsuarios.resx">
+    <EmbeddedResource Include="Telas\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

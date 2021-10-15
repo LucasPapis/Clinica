@@ -40,6 +40,7 @@ namespace piClinica
             this.médicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agendmentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.históricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsuLogado = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvAgenda = new System.Windows.Forms.DataGridView();
@@ -55,6 +56,7 @@ namespace piClinica
             this.SobrenomeP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dt_nasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexoP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtpPrincipal = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +76,8 @@ namespace piClinica
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem,
-            this.agendmentosToolStripMenuItem});
+            this.agendmentosToolStripMenuItem,
+            this.históricoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1076, 24);
@@ -121,11 +124,18 @@ namespace piClinica
             this.agendmentosToolStripMenuItem.Text = "Agendamentos";
             this.agendmentosToolStripMenuItem.Click += new System.EventHandler(this.agendmentosToolStripMenuItem_Click_1);
             // 
+            // históricoToolStripMenuItem
+            // 
+            this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
+            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.históricoToolStripMenuItem.Text = "Histórico";
+            this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
+            // 
             // lblUsuLogado
             // 
             this.lblUsuLogado.AutoSize = true;
             this.lblUsuLogado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuLogado.Location = new System.Drawing.Point(879, 24);
+            this.lblUsuLogado.Location = new System.Drawing.Point(956, 33);
             this.lblUsuLogado.Name = "lblUsuLogado";
             this.lblUsuLogado.Size = new System.Drawing.Size(57, 20);
             this.lblUsuLogado.TabIndex = 24;
@@ -137,11 +147,11 @@ namespace piClinica
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(834, 0);
+            this.label2.Location = new System.Drawing.Point(956, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 24);
+            this.label2.Size = new System.Drawing.Size(87, 24);
             this.label2.TabIndex = 25;
-            this.label2.Text = "Sessão de:";
+            this.label2.Text = "Usuário:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // dgvAgenda
@@ -185,7 +195,7 @@ namespace piClinica
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAgenda.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvAgenda.Location = new System.Drawing.Point(3, 47);
+            this.dgvAgenda.Location = new System.Drawing.Point(7, 84);
             this.dgvAgenda.MultiSelect = false;
             this.dgvAgenda.Name = "dgvAgenda";
             this.dgvAgenda.ReadOnly = true;
@@ -201,7 +211,7 @@ namespace piClinica
             this.dgvAgenda.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAgenda.RowHeadersVisible = false;
             this.dgvAgenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAgenda.Size = new System.Drawing.Size(1069, 430);
+            this.dgvAgenda.Size = new System.Drawing.Size(1061, 439);
             this.dgvAgenda.TabIndex = 27;
             // 
             // id_agenda
@@ -288,11 +298,24 @@ namespace piClinica
             this.sexoP.Name = "sexoP";
             this.sexoP.ReadOnly = true;
             // 
+            // dtpPrincipal
+            // 
+            this.dtpPrincipal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpPrincipal.Location = new System.Drawing.Point(7, 58);
+            this.dtpPrincipal.MaxDate = new System.DateTime(3000, 12, 31, 0, 0, 0, 0);
+            this.dtpPrincipal.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.dtpPrincipal.Name = "dtpPrincipal";
+            this.dtpPrincipal.Size = new System.Drawing.Size(98, 20);
+            this.dtpPrincipal.TabIndex = 28;
+            this.dtpPrincipal.Value = new System.DateTime(2021, 10, 15, 0, 0, 0, 0);
+            this.dtpPrincipal.ValueChanged += new System.EventHandler(this.dtpPrincipal_ValueChanged);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 535);
+            this.Controls.Add(this.dtpPrincipal);
             this.Controls.Add(this.dgvAgenda);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblUsuLogado);
@@ -336,6 +359,8 @@ namespace piClinica
         private System.Windows.Forms.DataGridViewTextBoxColumn SobrenomeP;
         private System.Windows.Forms.DataGridViewTextBoxColumn dt_nasc;
         private System.Windows.Forms.DataGridViewTextBoxColumn sexoP;
+        private System.Windows.Forms.ToolStripMenuItem históricoToolStripMenuItem;
+        private System.Windows.Forms.DateTimePicker dtpPrincipal;
     }
 }
 

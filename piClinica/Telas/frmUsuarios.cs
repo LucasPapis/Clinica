@@ -25,14 +25,11 @@ namespace piClinica
             InitializeComponent();
             usuLogado = usu;
         }
-        public frmUsuarios()
-        {
-            InitializeComponent();
-        }
 
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
             buscaBanco();
+            lblUsuLogado.Text = usuLogado.User.ToUpper();
         }
         private void buscaBanco()
         {

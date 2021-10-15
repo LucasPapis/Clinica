@@ -100,10 +100,10 @@ namespace piClinica.Classes
             Descricao = descricao;
         }
 
-        public static List<Agendamento> BuscaAgenda()
+        public static List<Agendamento> BuscaAgenda(string data)
         {
             List<Agendamento> listaAgenda = new List<Agendamento>();
-            string query = "SELECT a.id_agenda, a.data, a.hora, a.descricao, m.nome, m.sobrenome, m.crm, m.especialidade, p.nome, p.sobrenome, p.dt_nasc, p.sexo FROM agendamento AS a INNER JOIN medico AS m ON a.id_medico = m.id_medico INNER JOIN paciente AS p ON a.id_paciente = p.id_paciente";
+            string query = "SELECT a.id_agenda, a.data, a.hora, a.descricao, m.nome, m.sobrenome, m.crm, m.especialidade, p.nome, p.sobrenome, p.dt_nasc, p.sexo FROM agendamento AS a INNER JOIN medico AS m ON a.id_medico = m.id_medico INNER JOIN paciente AS p ON a.id_paciente = p.id_paciente WHERE a.data='"+data+"'";
             Conexao cn = new Conexao(query);
             try
             {
@@ -170,6 +170,41 @@ namespace piClinica.Classes
             {
                 cn.FecharConexao();
             }
+        }
+        public static List<Agendamento> BuscaHisto(int id_paciente)
+        {
+            List<Agendamento> listaHisto = new List<Agendamento>();
+            string query = "SELECT a.id_agenda, a.data, a.hora, a.descricao, m.nome, m.sobrenome, m.crm, m.especialidade FROM agendamento AS a INNER JOIN medico as m ON a.id_medico = m.id_medico WHERE m.ativo = 1 AND a.id_paciente="+id_paciente+"";
+            Conexao cn = new Conexao(query);
+            try
+            {
+                cn.AbreConexao();
+                cn.dr = cn.cmd.ExecuteReader();
+                if (cn.dr.HasRows)
+                {
+                    while (cn.dr.Read())
+                    {
+                        listaHisto.Add(new Agendamento(Convert.ToInt32(cn.dr[0]),
+                            cn.dr[1].ToString(),
+                            cn.dr[2].ToString(),
+                            cn.dr[3].ToString(),
+                            new Medico(cn.dr[4].ToString(),
+                            cn.dr[5].ToString(),
+                            Convert.ToInt32(cn.dr[6]),
+                            cn.dr[7].ToString())));
+                    }
+                }
+                return listaHisto;
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.ToString());
+            }
+            finally
+            {
+                cn.FecharConexao();
+            }
+
         }
         public static List<Agendamento> BuscaMed()
         {

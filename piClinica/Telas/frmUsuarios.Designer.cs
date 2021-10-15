@@ -46,18 +46,13 @@ namespace piClinica
             this.btnAlterarU = new System.Windows.Forms.Button();
             this.btnIserirU = new System.Windows.Forms.Button();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtBuscaU = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.btnDesativar = new System.Windows.Forms.Button();
             this.btnAtivar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblUsuLogado = new System.Windows.Forms.Label();
             this.gpbDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpbDados
@@ -227,64 +222,6 @@ namespace piClinica
             this.dgvUsuarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvUsuarios_CellFormatting);
             this.dgvUsuarios.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_RowEnter);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.btnBuscar);
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.txtBuscaU);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Location = new System.Drawing.Point(203, 65);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(225, 103);
-            this.groupBox2.TabIndex = 28;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Buscar Usuário";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(9, 28);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(0, 13);
-            this.label20.TabIndex = 32;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Image = global::piClinica.Properties.Resources.finder_16;
-            this.btnBuscar.Location = new System.Drawing.Point(158, 44);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(23, 28);
-            this.btnBuscar.TabIndex = 31;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(46, 33);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(92, 13);
-            this.label19.TabIndex = 27;
-            this.label19.Text = "Nome do Usuário:";
-            // 
-            // txtBuscaU
-            // 
-            this.txtBuscaU.Location = new System.Drawing.Point(49, 49);
-            this.txtBuscaU.Name = "txtBuscaU";
-            this.txtBuscaU.Size = new System.Drawing.Size(103, 20);
-            this.txtBuscaU.TabIndex = 25;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 28);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(0, 13);
-            this.label17.TabIndex = 26;
-            // 
             // btnDesativar
             // 
             this.btnDesativar.Location = new System.Drawing.Point(309, 196);
@@ -315,15 +252,38 @@ namespace piClinica
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(265, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(110, 29);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "Usuário:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblUsuLogado
+            // 
+            this.lblUsuLogado.AutoSize = true;
+            this.lblUsuLogado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuLogado.Location = new System.Drawing.Point(266, 94);
+            this.lblUsuLogado.Name = "lblUsuLogado";
+            this.lblUsuLogado.Size = new System.Drawing.Size(68, 24);
+            this.lblUsuLogado.TabIndex = 33;
+            this.lblUsuLogado.Text = "name:";
+            this.lblUsuLogado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 438);
+            this.Controls.Add(this.lblUsuLogado);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAtivar);
             this.Controls.Add(this.btnDesativar);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvUsuarios);
             this.Controls.Add(this.btnExcluirU);
             this.Controls.Add(this.btnAlterarU);
@@ -341,8 +301,6 @@ namespace piClinica
             this.gpbDados.ResumeLayout(false);
             this.gpbDados.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,15 +320,11 @@ namespace piClinica
         private System.Windows.Forms.Button btnAlterarU;
         private System.Windows.Forms.Button btnIserirU;
         private System.Windows.Forms.DataGridView dgvUsuarios;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox txtBuscaU;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.CheckBox ckbAdmin;
         private System.Windows.Forms.Button btnDesativar;
         private System.Windows.Forms.Button btnAtivar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUsuLogado;
     }
 }

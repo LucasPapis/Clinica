@@ -30,6 +30,7 @@ namespace piClinica
             cbbSexoP.SelectedIndex = 0;
             cbbEstado.SelectedIndex = 24;
             buscaBanco();
+            lblUsuLogado.Text = usuLogado.User.ToUpper();
         }
 
         //Buscar lista no banco
@@ -234,19 +235,6 @@ namespace piClinica
                 }
             }
         }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            if (txtBuscaC.Text != string.Empty)
-            {
-
-            }
-            else
-            {
-
-            }
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             LimpaCampos();

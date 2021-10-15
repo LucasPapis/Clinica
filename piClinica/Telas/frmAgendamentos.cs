@@ -21,14 +21,16 @@ namespace piClinica
         //Passando sessão do usu logado
         private Usuario usuLogado;
         private string nome, sobrenome, cpf;
-        public frmAgendamentos()
+        public frmAgendamentos(Usuario usu)
         {
             InitializeComponent();
+            usuLogado = usu;
         }
         private void frmAgendamentos_Load(object sender, EventArgs e)
         {
             buscaBanco();
             cbbHora.SelectedIndex = 0;
+            lblUsuLogado.Text = usuLogado.User.ToUpper();
         }
         private Boolean ValidaBuscaP()
         {

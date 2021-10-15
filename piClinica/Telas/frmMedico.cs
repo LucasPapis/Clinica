@@ -19,13 +19,15 @@ namespace piClinica
         private BindingList<Medico> listaMedDgv;
         //Passando sessão do usu logado
         private Usuario usuLogado;
-        public frmMedico()
+        public frmMedico(Usuario usu)
         {
             InitializeComponent();
+            usuLogado = usu;
         }
         private void frmMedico_Load(object sender, EventArgs e)
         {
             buscaBanco();
+            lblUsuLogado.Text = usuLogado.User.ToUpper();
         }
         private void buscaBanco()
         {
