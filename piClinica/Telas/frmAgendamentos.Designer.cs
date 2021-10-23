@@ -29,20 +29,20 @@ namespace piClinica
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvAgenda = new System.Windows.Forms.DataGridView();
-            this.IdA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoraA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idMed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomeM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SobrenomeM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Crm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Espec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idAgenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sobreM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.espec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCnacelaP = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -103,107 +103,107 @@ namespace piClinica
             this.dgvAgenda.AllowUserToDeleteRows = false;
             this.dgvAgenda.AllowUserToResizeColumns = false;
             this.dgvAgenda.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvAgenda.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvAgenda.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvAgenda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAgenda.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAgenda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAgenda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvAgenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAgenda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdA,
-            this.DataA,
-            this.HoraA,
-            this.idMed,
-            this.NomeM,
-            this.SobrenomeM,
-            this.Crm,
-            this.Espec,
+            this.idAgenda,
+            this.data,
+            this.hora,
+            this.idM,
+            this.nomeM,
+            this.sobreM,
+            this.crm,
+            this.espec,
             this.descricao});
             this.dgvAgenda.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAgenda.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAgenda.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvAgenda.Location = new System.Drawing.Point(7, 275);
             this.dgvAgenda.MultiSelect = false;
             this.dgvAgenda.Name = "dgvAgenda";
             this.dgvAgenda.ReadOnly = true;
             this.dgvAgenda.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgvAgenda.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAgenda.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAgenda.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvAgenda.RowHeadersVisible = false;
             this.dgvAgenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAgenda.Size = new System.Drawing.Size(705, 313);
+            this.dgvAgenda.Size = new System.Drawing.Size(745, 313);
             this.dgvAgenda.TabIndex = 26;
-            this.dgvAgenda.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgenda_RowEnter);
+            this.dgvAgenda.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgenda_CellClick);
             // 
-            // IdA
+            // idAgenda
             // 
-            this.IdA.HeaderText = "Id Agenda";
-            this.IdA.Name = "IdA";
-            this.IdA.ReadOnly = true;
-            this.IdA.Visible = false;
+            this.idAgenda.HeaderText = "Id Agenda";
+            this.idAgenda.Name = "idAgenda";
+            this.idAgenda.ReadOnly = true;
+            this.idAgenda.Visible = false;
             // 
-            // DataA
+            // data
             // 
-            this.DataA.HeaderText = "Data";
-            this.DataA.Name = "DataA";
-            this.DataA.ReadOnly = true;
+            this.data.HeaderText = "Data";
+            this.data.Name = "data";
+            this.data.ReadOnly = true;
             // 
-            // HoraA
+            // hora
             // 
-            this.HoraA.HeaderText = "Hora";
-            this.HoraA.Name = "HoraA";
-            this.HoraA.ReadOnly = true;
+            this.hora.HeaderText = "Hora";
+            this.hora.Name = "hora";
+            this.hora.ReadOnly = true;
             // 
-            // idMed
+            // idM
             // 
-            this.idMed.HeaderText = "Id";
-            this.idMed.Name = "idMed";
-            this.idMed.ReadOnly = true;
-            this.idMed.Visible = false;
+            this.idM.HeaderText = "idMedico";
+            this.idM.Name = "idM";
+            this.idM.ReadOnly = true;
+            this.idM.Visible = false;
             // 
-            // NomeM
+            // nomeM
             // 
-            this.NomeM.HeaderText = "Nome do medico";
-            this.NomeM.Name = "NomeM";
-            this.NomeM.ReadOnly = true;
+            this.nomeM.HeaderText = "Nome médico";
+            this.nomeM.Name = "nomeM";
+            this.nomeM.ReadOnly = true;
             // 
-            // SobrenomeM
+            // sobreM
             // 
-            this.SobrenomeM.HeaderText = "Sobrenome do médico";
-            this.SobrenomeM.Name = "SobrenomeM";
-            this.SobrenomeM.ReadOnly = true;
+            this.sobreM.HeaderText = "Sobrenome";
+            this.sobreM.Name = "sobreM";
+            this.sobreM.ReadOnly = true;
             // 
-            // Crm
+            // crm
             // 
-            this.Crm.HeaderText = "CRM";
-            this.Crm.Name = "Crm";
-            this.Crm.ReadOnly = true;
+            this.crm.HeaderText = "CRM";
+            this.crm.Name = "crm";
+            this.crm.ReadOnly = true;
             // 
-            // Espec
+            // espec
             // 
-            this.Espec.HeaderText = "Especialidade";
-            this.Espec.Name = "Espec";
-            this.Espec.ReadOnly = true;
+            this.espec.HeaderText = "Especialidade";
+            this.espec.Name = "espec";
+            this.espec.ReadOnly = true;
             // 
             // descricao
             // 
@@ -590,7 +590,7 @@ namespace piClinica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 596);
+            this.ClientSize = new System.Drawing.Size(764, 596);
             this.Controls.Add(this.lblUsuLogado);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtIdA);
@@ -603,7 +603,9 @@ namespace piClinica
             this.Controls.Add(this.dgvAgenda);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(780, 635);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(780, 635);
             this.Name = "frmAgendamentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agendamentos";
@@ -637,15 +639,6 @@ namespace piClinica
         private System.Windows.Forms.Button btnRemarcar;
         private System.Windows.Forms.Button btnDesmarcar;
         private System.Windows.Forms.TextBox txtIdA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DataA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoraA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idMed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomeM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SobrenomeM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Crm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Espec;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
         private System.Windows.Forms.TextBox txtNomeP;
         private System.Windows.Forms.TextBox txtSobrenomeP;
         private System.Windows.Forms.Label label2;
@@ -667,5 +660,14 @@ namespace piClinica
         private System.Windows.Forms.GroupBox gpbDados;
         private System.Windows.Forms.Label lblUsuLogado;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idAgenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sobreM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn crm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn espec;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
     }
 }

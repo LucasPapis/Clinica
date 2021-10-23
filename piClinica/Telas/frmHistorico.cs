@@ -20,11 +20,13 @@ namespace piClinica.Telas
         private BindingList<Agendamento> listaHistoDgv;
         //Passando sessão do usu logado
         private Usuario usuLogado;
+        private Medico medLogado;
         private string nome, sobrenome, cpf;
-        public frmHistorico(Usuario usu)
+        public frmHistorico(Medico med ,Usuario usu)
         {
             InitializeComponent();
             usuLogado = usu;
+            medLogado = med;
         }
         private void alimentaDgv(BindingList<Agendamento> listaHistoDgv)
         {
@@ -76,7 +78,14 @@ namespace piClinica.Telas
 
         private void frmHistorico_Load(object sender, EventArgs e)
         {
-            lblUsuLogado.Text = usuLogado.User.ToUpper();
+            if (usuLogado.User != null)
+            {
+                lblUsuLogado.Text = usuLogado.User.ToUpper();
+            }
+            else
+            {
+                lblUsuLogado.Text = "Dr/Dra. " + medLogado.Nome.ToUpper();
+            }
         }
 
         private void PreencheCamposP()

@@ -87,6 +87,7 @@ namespace piClinica
             // 
             this.txtSenhaU.Location = new System.Drawing.Point(6, 130);
             this.txtSenhaU.Name = "txtSenhaU";
+            this.txtSenhaU.PasswordChar = '•';
             this.txtSenhaU.Size = new System.Drawing.Size(109, 20);
             this.txtSenhaU.TabIndex = 30;
             // 
@@ -296,7 +297,7 @@ namespace piClinica
             this.MinimumSize = new System.Drawing.Size(450, 477);
             this.Name = "frmUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmUsuarios";
+            this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.frmUsuarios_Load);
             this.gpbDados.ResumeLayout(false);
             this.gpbDados.PerformLayout();

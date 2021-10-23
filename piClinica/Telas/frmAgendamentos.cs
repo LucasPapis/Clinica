@@ -16,21 +16,33 @@ namespace piClinica
         //Declaração da lista
         private List<Agendamento> listaMedA = new List<Agendamento>();
         private List<Paciente> listaPacientesEspec = new List<Paciente>();
+        private List<Medico> listaMed = new List<Medico>();
         //Declaração do bindingList para o dataGrid
         private BindingList<Agendamento> listaMedADgv;
+        private BindingList<Medico> listaMedDgv;
         //Passando sessão do usu logado
         private Usuario usuLogado;
+        private Medico medLogado;
         private string nome, sobrenome, cpf;
-        public frmAgendamentos(Usuario usu)
+        public frmAgendamentos(Medico med,Usuario usu)
         {
             InitializeComponent();
             usuLogado = usu;
+            medLogado = med;
         }
         private void frmAgendamentos_Load(object sender, EventArgs e)
         {
             buscaBanco();
             cbbHora.SelectedIndex = 0;
-            lblUsuLogado.Text = usuLogado.User.ToUpper();
+            if (usuLogado.User != null)
+            {
+                lblUsuLogado.Text = usuLogado.User.ToUpper();
+            }
+            else
+            {
+                lblUsuLogado.Text = "Dr/Dra. " + medLogado.Nome.ToUpper();
+            }
+
         }
         private Boolean ValidaBuscaP()
         {
@@ -59,22 +71,38 @@ namespace piClinica
         }
         private void PreencheCampoM(int index)
         {
-            txtIdM.Text = listaMedA[index].DadosMedico.Id_medico.ToString();
-            txtIdA.Text = listaMedA[index].Id_agenda.ToString();
-            txtDescricao.Text = listaMedA[index].Descricao;
+            if (listaMedA.Count != 0)
+            {
+                txtIdM.Text = listaMedA[index].DadosMedico.Id_medico.ToString();
+                txtIdA.Text = listaMedA[index].Id_agenda.ToString();
+                txtDescricao.Text = listaMedA[index].Descricao;
+            }
+            else
+            {
+                txtIdM.Text = listaMed[index].Id_medico.ToString();
+            }
+            
+          
         }
         private void PreencheCamposP()
         {
-            listaPacientesEspec = Paciente.BuscaPacientesEspe(nome, sobrenome, cpf);
-            txtIdP.Text = listaPacientesEspec[0].Id_paciente.ToString();
-            txtNomeP.Text = listaPacientesEspec[0].Nome;
-            txtSobrenomeP.Text = listaPacientesEspec[0].Sobrenome;
-            mskCpfP.Text = listaPacientesEspec[0].Cpf;
-            mskRgP.Text = listaPacientesEspec[0].Rg;
-            txtPesoP.Text = listaPacientesEspec[0].Peso;
-            mskTelP.Text = listaPacientesEspec[0].Telefone;
-            txtConvenioP.Text = listaPacientesEspec[0].Plano_saude;
-            txtAlturaP.Text = listaPacientesEspec[0].Altura;
+            try
+            {
+                listaPacientesEspec = Paciente.BuscaPacientesEspe(nome, sobrenome, cpf);
+                txtIdP.Text = listaPacientesEspec[0].Id_paciente.ToString();
+                txtNomeP.Text = listaPacientesEspec[0].Nome;
+                txtSobrenomeP.Text = listaPacientesEspec[0].Sobrenome;
+                mskCpfP.Text = listaPacientesEspec[0].Cpf;
+                mskRgP.Text = listaPacientesEspec[0].Rg;
+                txtPesoP.Text = listaPacientesEspec[0].Peso;
+                mskTelP.Text = listaPacientesEspec[0].Telefone;
+                txtConvenioP.Text = listaPacientesEspec[0].Plano_saude;
+                txtAlturaP.Text = listaPacientesEspec[0].Altura;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Campos em branco", "Agendamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }   
         }
 
         private void btnCadastra_Click(object sender, EventArgs e)
@@ -88,39 +116,45 @@ namespace piClinica
                 txtNomeP.Focus();
                 buscaBanco();
             }
-            catch (Exception)
+            catch (Exception error)
             {
-                MessageBox.Show("Consulta já agendada ", "Agendamento", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Consulta já agendada " + error, "Agendamento", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void buscaBanco()
         {
             dgvAgenda.Rows.Clear();
             listaMedA.Clear();
-            listaMedA = Agendamento.BuscaMed();
+            listaMedA = Agendamento.BuscaAgendamentoFeito();
             //Carregando o Binding para passar pro DataGrid
             listaMedADgv = new BindingList<Agendamento>(listaMedA);
-            alimentaDgv();
+            alimentaDgvA();
             LimpaCampos();
         }
-        private void alimentaDgv()
+        private void alimentaDgvM()
         {
-
+            for (int i = 0; i < listaMed.Count; i++)
+            {
+                dgvAgenda.Rows.Add(null, null, null, listaMed[i].Id_medico, listaMed[i].Nome,
+                    listaMed[i].Sobrenome, listaMed[i].Crm, listaMed[i].Espec, null);
+            }
+        }
+        private void alimentaDgvA()
+        {
             for (int i = 0; i < listaMedA.Count; i++)
             {
                 dgvAgenda.Rows.Add(listaMedA[i].Id_agenda, listaMedA[i].Data, listaMedA[i].Hora,
-                    listaMedA[i].DadosMedico.Id_medico, listaMedA[i].DadosMedico.Nome, 
-                    listaMedA[i].DadosMedico.Sobrenome, listaMedA[i].DadosMedico.Crm, 
+                    listaMedA[i].DadosMedico.Id_medico, listaMedA[i].DadosMedico.Nome,
+                    listaMedA[i].DadosMedico.Sobrenome, listaMedA[i].DadosMedico.Crm,
                     listaMedA[i].DadosMedico.Espec, listaMedA[i].Descricao);
             }
         }
 
-        private void dgvAgenda_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            PreencheCampoM(e.RowIndex);
-        }
         private void LimpaCampos()
         {
+            txtIdM.Text = string.Empty;
+            txtIdA.Text = string.Empty;
+            txtIdP.Text = string.Empty;
             txtNomeP.Text = string.Empty;
             txtSobrenomeP.Text = string.Empty;
             mskRgP.Text = string.Empty;
@@ -144,7 +178,7 @@ namespace piClinica
         {
             try
             {
-                Agendamento a = new Agendamento(Convert.ToInt32(txtIdA.Text),Convert.ToInt32(txtIdP.Text), Convert.ToInt32(txtIdM.Text), mskData.Text, cbbHora.Text, txtDescricao.Text);
+                Agendamento a = new Agendamento(Convert.ToInt32(txtIdA.Text), Convert.ToInt32(txtIdM.Text), mskData.Text, cbbHora.Text, txtDescricao.Text, null);
                 a.RemarcarConsulta();
                 MessageBox.Show("Consulta Remarcada", "Remarcar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpaCampos();
@@ -174,6 +208,11 @@ namespace piClinica
             }
         }
 
+        private void dgvAgenda_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PreencheCampoM(e.RowIndex);
+        }
+
         private void btnPesqC_Click(object sender, EventArgs e)
         {
             if (txtTipoConsul.Text == string.Empty)
@@ -185,19 +224,29 @@ namespace piClinica
             {
                 try
                 {
-                    dgvAgenda.Rows.Clear();
-                    listaMedA.Clear();
-                    listaMedA = Agendamento.BuscaMedDispo(txtTipoConsul.Text);
-                    listaMedADgv = new BindingList<Agendamento>(listaMedA);
-                    alimentaDgv();
+                    if (dgvAgenda.Rows.Count == 0)
+                    {
+                        listaMed = Medico.BuscaMedUnico(txtTipoConsul.Text);
+                        listaMedDgv = new BindingList<Medico>(listaMed);
+                        alimentaDgvM();
+                    }
+                    else
+                    {
+                        listaMedA.Clear();
+                        dgvAgenda.Rows.Clear();
+                        listaMedA = Agendamento.BuscaAgendaUnico(txtTipoConsul.Text);
+                        listaMedADgv = new BindingList<Agendamento>(listaMedA);
+                        alimentaDgvA();
+                    }
                 }
-                catch (Exception)
+                catch (Exception error)
                 {
 
-                    MessageBox.Show("Não encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Não encontrado" + error, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
         private void btnPesqP_Click(object sender, EventArgs e)
         {
             if (ValidaBuscaP())

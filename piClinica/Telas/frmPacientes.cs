@@ -20,17 +20,26 @@ namespace piClinica
         private BindingList<Paciente> listaPacientesDgv;
         //Passando sessão do usu logado
         private Usuario usuLogado;
-        public frmPacientes(Usuario usu)
+        private Medico medLogado;
+        public frmPacientes(Usuario usu, Medico med)
         {
             InitializeComponent();
             usuLogado = usu;
+            medLogado = med;
         }
         private void frmPacientes_Load(object sender, EventArgs e)
         {
             cbbSexoP.SelectedIndex = 0;
             cbbEstado.SelectedIndex = 24;
             buscaBanco();
-            lblUsuLogado.Text = usuLogado.User.ToUpper();
+            if (usuLogado.User != null)
+            {
+                lblUsuLogado.Text = usuLogado.User.ToUpper();
+            }
+            else
+            {
+                lblUsuLogado.Text = "Dr/Dra. " + medLogado.Nome.ToUpper();
+            }
         }
 
         //Buscar lista no banco

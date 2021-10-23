@@ -32,9 +32,12 @@ namespace piClinica
             this.label1 = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblUsu = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.ckbMedico = new System.Windows.Forms.CheckBox();
+            this.txtCrm = new System.Windows.Forms.TextBox();
+            this.lblCrm = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -62,15 +65,15 @@ namespace piClinica
             this.txtSenha.Size = new System.Drawing.Size(182, 20);
             this.txtSenha.TabIndex = 2;
             // 
-            // label2
+            // lblUsu
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(87, 97);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Usuário:";
+            this.lblUsu.AutoSize = true;
+            this.lblUsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsu.Location = new System.Drawing.Point(87, 97);
+            this.lblUsu.Name = "lblUsu";
+            this.lblUsu.Size = new System.Drawing.Size(68, 20);
+            this.lblUsu.TabIndex = 3;
+            this.lblUsu.Text = "Usuário:";
             // 
             // label3
             // 
@@ -93,14 +96,47 @@ namespace piClinica
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // ckbMedico
+            // 
+            this.ckbMedico.AutoSize = true;
+            this.ckbMedico.Location = new System.Drawing.Point(236, 300);
+            this.ckbMedico.Name = "ckbMedico";
+            this.ckbMedico.Size = new System.Drawing.Size(120, 17);
+            this.ckbMedico.TabIndex = 6;
+            this.ckbMedico.Text = "Entrar como médico";
+            this.ckbMedico.UseVisualStyleBackColor = true;
+            this.ckbMedico.CheckedChanged += new System.EventHandler(this.ckbMedico_CheckedChanged);
+            // 
+            // txtCrm
+            // 
+            this.txtCrm.Location = new System.Drawing.Point(91, 120);
+            this.txtCrm.Name = "txtCrm";
+            this.txtCrm.Size = new System.Drawing.Size(103, 20);
+            this.txtCrm.TabIndex = 7;
+            this.txtCrm.Visible = false;
+            // 
+            // lblCrm
+            // 
+            this.lblCrm.AutoSize = true;
+            this.lblCrm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCrm.Location = new System.Drawing.Point(87, 97);
+            this.lblCrm.Name = "lblCrm";
+            this.lblCrm.Size = new System.Drawing.Size(49, 20);
+            this.lblCrm.TabIndex = 8;
+            this.lblCrm.Text = "CRM:";
+            this.lblCrm.Visible = false;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(368, 329);
+            this.Controls.Add(this.lblCrm);
+            this.Controls.Add(this.txtCrm);
+            this.Controls.Add(this.ckbMedico);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblUsu);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.label1);
@@ -110,7 +146,7 @@ namespace piClinica
             this.MinimumSize = new System.Drawing.Size(384, 368);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmLogin";
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,8 +157,11 @@ namespace piClinica
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.TextBox txtSenha;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUsu;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.CheckBox ckbMedico;
+        private System.Windows.Forms.TextBox txtCrm;
+        private System.Windows.Forms.Label lblCrm;
     }
 }

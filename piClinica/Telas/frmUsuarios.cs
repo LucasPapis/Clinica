@@ -62,7 +62,7 @@ namespace piClinica
             dgvUsuarios.Columns[1].HeaderText = "Usuário";
             dgvUsuarios.Columns[2].Visible = false;
             dgvUsuarios.Columns[3].Visible = false;
-            dgvUsuarios.Columns[4].HeaderText = "Ativo";
+            dgvUsuarios.Columns[4].HeaderText = "Status";
         }
         private Boolean ValidaCampos()
         {

@@ -7,7 +7,7 @@ using piClinica.Classes;
 
 namespace piClinica
 {
-    class Medico
+    public class Medico
     {
         private int id_medico;
         private string nome;
@@ -100,36 +100,16 @@ namespace piClinica
             Crm = crm;
             Senha = senha;
         }
+        public Medico(int crm, string nome, string senha, int ativo)
+        {
+            Crm = crm;
+            Nome = nome;
+            Senha = senha;
+            Ativo = ativo;
+        }
 
         //Buscar
-        public Medico(int id_medico, string nome, string sobrenome, int crm, string senha, string espec, string cpf, string dispo, string status, int ativo)
-        {
-            Id_medico = id_medico;         
-            Nome = nome;
-            Sobrenome = sobrenome;
-            Crm = crm;
-            Senha = senha;
-            Espec = espec;
-            Cpf = cpf;
-            Dispo = dispo;
-            Status = status;
-            Ativo = ativo;
-        }
-        //Cadastrar
-        public Medico(string nome, string sobrenome, int crm, string senha, string espec, string cpf, string dispo, string status, int ativo)
-        {
-            Nome = nome;
-            Sobrenome = sobrenome;
-            Crm = crm;
-            Senha = senha;
-            Espec = espec;
-            Cpf = cpf;
-            Dispo = dispo;
-            Status = status;
-            Ativo = ativo;
-        }
-        //Alterar
-        public Medico(int id_medico, string nome, string sobrenome, int crm, string senha, string espec, string cpf, string dispo, string status)
+        public Medico(int id_medico, string nome, string sobrenome, int crm, string senha, string espec, string cpf, int ativo)
         {
             Id_medico = id_medico;
             Nome = nome;
@@ -138,13 +118,34 @@ namespace piClinica
             Senha = senha;
             Espec = espec;
             Cpf = cpf;
-            Dispo = dispo;
-            Status = status;
+            Ativo = ativo;
+        }
+        //Cadastrar
+        public Medico(string nome, string sobrenome, int crm, string senha, string espec, string cpf, int ativo)
+        {
+            Nome = nome;
+            Sobrenome = sobrenome;
+            Crm = crm;
+            Senha = senha;
+            Espec = espec;
+            Cpf = cpf;
+            Ativo = ativo;
+        }
+        //Alterar
+        public Medico(int id_medico, string nome, string sobrenome, int crm, string senha, string espec, string cpf)
+        {
+            Id_medico = id_medico;
+            Nome = nome;
+            Sobrenome = sobrenome;
+            Crm = crm;
+            Senha = senha;
+            Espec = espec;
+            Cpf = cpf;
         }
         #region Métodos
         public static Medico FazLogin(int crm, string senha)
         {
-            string query = "SELECT crm, senha FROM medico WHERE crm = '" + crm + "'";
+            string query = "SELECT crm, nome, senha, ativo FROM medico WHERE crm = '" + crm + "'";
             Conexao cn = new Conexao(query);
             try
             {
@@ -155,7 +156,7 @@ namespace piClinica
                     Medico medLogin = new Medico();
                     while (cn.dr.Read())
                     {
-                        medLogin = new Medico(Convert.ToInt32(cn.dr["crm"]), cn.dr["senha"].ToString());
+                        medLogin = new Medico(Convert.ToInt32(cn.dr["crm"]), cn.dr["nome"].ToString(), cn.dr["senha"].ToString(),Convert.ToInt32(cn.dr["ativo"]));
                     }
                     if (medLogin.Ativo == 0)
                     {
@@ -189,7 +190,37 @@ namespace piClinica
                 cn.FecharConexao();
             }
         }
-       
+        public static List<Medico> BuscaMedUnico(string spec)
+        {
+            List<Medico> listaMed = new List<Medico>();
+            string query = "SELECT id_medico, nome, sobrenome, crm, especialidade FROM medico WHERE especialidade = '" + spec + "' AND ativo = 1";
+            Conexao cn = new Conexao(query);
+            try
+            {
+                cn.AbreConexao();
+                cn.dr = cn.cmd.ExecuteReader();
+                if (cn.dr.HasRows)
+                {
+                    while (cn.dr.Read())
+                    {
+                        listaMed.Add(new Medico(Convert.ToInt32(cn.dr[0]),
+                            cn.dr[1].ToString(),
+                            cn.dr[2].ToString(),
+                            Convert.ToInt32(cn.dr[3]),
+                            cn.dr[4].ToString()));
+                    }
+                }
+                return listaMed;
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.ToString());
+            }
+            finally
+            {
+                cn.FecharConexao();
+            }
+        }
         public static List<Medico> BuscaMed()
         {
             List<Medico> listaMed = new List<Medico>();
@@ -210,9 +241,7 @@ namespace piClinica
                             cn.dr[4].ToString(),
                             cn.dr[5].ToString(),
                             cn.dr[6].ToString(),
-                            cn.dr[7].ToString(),
-                            cn.dr[8].ToString(),
-                            Convert.ToInt32(cn.dr[9])));
+                            Convert.ToInt32(cn.dr[7])));
                     }
                 }
                 return listaMed;
@@ -226,6 +255,7 @@ namespace piClinica
                 cn.FecharConexao();
             }
         }
+            
         //Cadastra o Usuário
         public void CadastraMed() //Aplicar esse metodo para consulta repetida
         {
@@ -238,7 +268,7 @@ namespace piClinica
                 if (!cn.dr.HasRows)
                 {
                     cn.FecharConexao();
-                    query = string.Format("INSERT INTO medico (nome, sobrenome, crm, senha, especialidade, cpf, disponibilidade, status, ativo ) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')", Nome, Sobrenome, Crm, Senha, Espec, Cpf, Dispo, Status, Ativo);
+                    query = string.Format("INSERT INTO medico (nome, sobrenome, crm, senha, especialidade, cpf, ativo ) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", Nome, Sobrenome, Crm, Senha, Espec, Cpf, Ativo);
                     cn = new Conexao(query);
                     cn.AbreConexao();
                     cn.cmd.ExecuteNonQuery();
@@ -260,7 +290,7 @@ namespace piClinica
         }
         public void AlteraMed()
         {
-            string query = string.Format("UPDATE medico SET nome='{0}', sobrenome='{1}', crm='{2}', senha='{3}', espec='{4}', cpf='{5}', dispo='{6}', status='{7}', ativo='{8}' WHERE id_medico='{9}'", Nome, Sobrenome, Crm, Senha, Espec, Cpf, Dispo, Status, Ativo, Id_medico);
+            string query = string.Format("UPDATE medico SET nome='{0}', sobrenome='{1}', crm='{2}', senha='{3}', especialidade='{4}', cpf='{5}', ativo='{6}' WHERE id_medico='{7}'", Nome, Sobrenome, Crm, Senha, Espec, Cpf, Ativo, Id_medico);
             Conexao cn = new Conexao(query);
             try
             {

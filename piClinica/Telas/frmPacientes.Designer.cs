@@ -579,7 +579,7 @@ namespace piClinica
             this.MinimumSize = new System.Drawing.Size(683, 637);
             this.Name = "frmPacientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmPacientes";
+            this.Text = "Pacientes";
             this.Load += new System.EventHandler(this.frmPacientes_Load);
             this.gpbDados.ResumeLayout(false);
             this.gpbDados.PerformLayout();

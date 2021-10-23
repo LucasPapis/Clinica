@@ -16,12 +16,14 @@ namespace piClinica
     public partial class frmPrincipal : Form
     {
         private Usuario usuLogado;
+        private Medico medLogado;
         private List<Agendamento> listaAgenda;
         private BindingList<Agendamento> listaAgendaDgv;
-        public frmPrincipal(Usuario usu)
+        public frmPrincipal(Usuario usu, Medico med)
         {
             InitializeComponent();
             usuLogado = usu;
+            medLogado = med;
         }
         private void alimentaDgv(BindingList<Agendamento> listaAgendaDgv)
         {
@@ -47,17 +49,29 @@ namespace piClinica
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             buscaBanco();
-            lblUsuLogado.Text = usuLogado.User.ToUpper();
-            lblUsuLogado.Visible = true;
-            if (usuLogado.Admin == 1)
+            if (usuLogado.User != null)
+            {
+                lblUsuLogado.Text = usuLogado.User.ToUpper();
+            }
+            else
+            {
+                lblUsuLogado.Text = "Dr/Dra. " + medLogado.Nome.ToUpper();
+            }
+                lblUsuLogado.Visible = true;
+            if (usuLogado.Admin == 1 && medLogado.Nome == null)
             {
                 usuáriosToolStripMenuItem.Visible = true;
                 usuáriosToolStripMenuItem.Enabled = true;
             }
+            if (medLogado.Nome == null)
+            {
+                médicosToolStripMenuItem.Visible = true;
+                médicosToolStripMenuItem.Enabled = true;
+            }
         }
         private void pacientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPacientes p = new frmPacientes(usuLogado);
+            frmPacientes p = new frmPacientes(usuLogado, medLogado);
             p.ShowDialog();
 
         }
@@ -81,7 +95,7 @@ namespace piClinica
 
         private void agendmentosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            frmAgendamentos a = new frmAgendamentos(usuLogado);
+            frmAgendamentos a = new frmAgendamentos(medLogado,usuLogado);
             a.ShowDialog();
         }
 
@@ -92,7 +106,7 @@ namespace piClinica
 
         private void históricoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmHistorico h = new frmHistorico(usuLogado);
+            frmHistorico h = new frmHistorico(medLogado,usuLogado);
             h.ShowDialog();
         }
     }

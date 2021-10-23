@@ -15,6 +15,7 @@ namespace piClinica.Classes
         private string data;
         private string hora;
         private string descricao;
+        private string endProblem;
 
         public int Id_agenda
         {
@@ -45,6 +46,11 @@ namespace piClinica.Classes
         {
             get { return descricao; }
             set { descricao = value; }
+        }
+        public string EndProblem
+        {
+            get { return endProblem; }
+            set { endProblem = value; }
         }
 
         public Medico DadosMedico { get; set; }
@@ -81,14 +87,14 @@ namespace piClinica.Classes
             DadosMedico = dadosMedico;
         }
         //Altera
-        public Agendamento(int id_agenda, int id_paciente, int id_medico, string data, string hora, string descricao)
+        public Agendamento(int id_agenda, int id_medico, string data, string hora, string descricao, string endProblem)
         {
             Id_agenda = id_agenda;
-            Id_paciente = id_paciente;
             Id_medico = id_medico;
             Data = data;
             Hora = hora;
             Descricao = descricao;
+            EndProblem = endProblem;
         }
         //Cadastra consulta
         public Agendamento(int id_paciente, int id_medico, string data, string hora, string descricao)
@@ -138,39 +144,7 @@ namespace piClinica.Classes
                 cn.FecharConexao();
             }
         }
-        public static List<Agendamento> BuscaMedDispo(string espec)
-        {
-            List<Agendamento> listaMedA = new List<Agendamento>();
-            string query = "SELECT a.data, a.hora, m.id_medico, m.nome, m.sobrenome, m.crm, m.especialidade FROM agendamento AS a INNER JOIN medico as m ON a.id_medico = m.id_medico WHERE m.especialidade = '" + espec + "' AND m.ativo = 1";
-            Conexao cn = new Conexao(query);
-            try
-            {
-                cn.AbreConexao();
-                cn.dr = cn.cmd.ExecuteReader();
-                if (cn.dr.HasRows)
-                {
-                    while (cn.dr.Read())
-                    {
-                        listaMedA.Add(new Agendamento(cn.dr[0].ToString(),
-                            cn.dr[1].ToString(),
-                            new Medico(Convert.ToInt32(cn.dr[2]),
-                            cn.dr[3].ToString(),
-                            cn.dr[4].ToString(),
-                            Convert.ToInt32(cn.dr[5]),
-                            cn.dr[6].ToString())));
-                    }
-                }
-                return listaMedA;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                cn.FecharConexao();
-            }
-        }
+        
         public static List<Agendamento> BuscaHisto(int id_paciente)
         {
             List<Agendamento> listaHisto = new List<Agendamento>();
@@ -206,7 +180,42 @@ namespace piClinica.Classes
             }
 
         }
-        public static List<Agendamento> BuscaMed()
+        public static List<Agendamento> BuscaAgendaUnico(string espec)
+        {
+            List<Agendamento> listaMedA = new List<Agendamento>();
+            string query = "SELECT a.id_agenda, a.data, a.hora, a.descricao, m.id_medico, m.nome, m.sobrenome, m.crm, m.especialidade FROM agendamento AS a INNER JOIN medico as m ON a.id_medico = m.id_medico WHERE m.especialidade='"+espec+"' AND m.ativo = 1";
+            Conexao cn = new Conexao(query);
+            try
+            {
+                cn.AbreConexao();
+                cn.dr = cn.cmd.ExecuteReader();
+                if (cn.dr.HasRows)
+                {
+                    while (cn.dr.Read())
+                    {
+                        listaMedA.Add(new Agendamento(Convert.ToInt32(cn.dr[0]),
+                            cn.dr[1].ToString(),
+                            cn.dr[2].ToString(),
+                            cn.dr[3].ToString(),
+                            new Medico(Convert.ToInt32(cn.dr[4]),
+                            cn.dr[5].ToString(),
+                            cn.dr[6].ToString(),
+                            Convert.ToInt32(cn.dr[7]),
+                            cn.dr[8].ToString())));
+                    }
+                }
+                return listaMedA;
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.ToString());
+            }
+            finally
+            {
+                cn.FecharConexao();
+            }
+        }
+        public static List<Agendamento> BuscaAgendamentoFeito()
         {
             List<Agendamento> listaMedA = new List<Agendamento>();
             string query = "SELECT a.id_agenda, a.data, a.hora, a.descricao, m.id_medico, m.nome, m.sobrenome, m.crm, m.especialidade FROM agendamento AS a INNER JOIN medico as m ON a.id_medico = m.id_medico WHERE m.ativo = 1";
@@ -284,7 +293,7 @@ namespace piClinica.Classes
                 if (!cn.dr.HasRows)
                 {
                     cn.FecharConexao();
-                    query = string.Format("UPDATE agendamento SET id_paciente='{0}', id_medico='{1}', data='{2}', hora='{3}', descricao='{4}' WHERE id_agenda='{5}'", Id_paciente, Id_medico, Data, Hora, Descricao, Id_agenda);
+                    query = string.Format("UPDATE agendamento SET id_medico='{0}', data='{1}', hora='{2}', descricao='{3}' WHERE id_agenda='{4}'", Id_medico, Data, Hora, Descricao, Id_agenda);
                     cn = new Conexao(query);
                     cn.AbreConexao();
                     cn.cmd.ExecuteNonQuery();

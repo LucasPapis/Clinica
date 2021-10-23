@@ -45,7 +45,6 @@ namespace piClinica
             this.txtCrm = new System.Windows.Forms.TextBox();
             this.txtEspec = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtCpfM = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSenhaM = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,6 +57,7 @@ namespace piClinica
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblUsuLogado = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.mskCpfM = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).BeginInit();
             this.gpbDados.SuspendLayout();
             this.SuspendLayout();
@@ -173,11 +173,11 @@ namespace piClinica
             // 
             // gpbDados
             // 
+            this.gpbDados.Controls.Add(this.mskCpfM);
             this.gpbDados.Controls.Add(this.label7);
             this.gpbDados.Controls.Add(this.txtCrm);
             this.gpbDados.Controls.Add(this.txtEspec);
             this.gpbDados.Controls.Add(this.label6);
-            this.gpbDados.Controls.Add(this.txtCpfM);
             this.gpbDados.Controls.Add(this.label4);
             this.gpbDados.Controls.Add(this.txtSenhaM);
             this.gpbDados.Controls.Add(this.label2);
@@ -225,13 +225,6 @@ namespace piClinica
             this.label6.Size = new System.Drawing.Size(76, 13);
             this.label6.TabIndex = 36;
             this.label6.Text = "Especialidade:";
-            // 
-            // txtCpfM
-            // 
-            this.txtCpfM.Location = new System.Drawing.Point(146, 130);
-            this.txtCpfM.Name = "txtCpfM";
-            this.txtCpfM.Size = new System.Drawing.Size(109, 20);
-            this.txtCpfM.TabIndex = 35;
             // 
             // label4
             // 
@@ -340,6 +333,14 @@ namespace piClinica
             this.label8.Text = "Usuário:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // mskCpfM
+            // 
+            this.mskCpfM.Location = new System.Drawing.Point(146, 130);
+            this.mskCpfM.Mask = "000.000.000-00";
+            this.mskCpfM.Name = "mskCpfM";
+            this.mskCpfM.Size = new System.Drawing.Size(82, 20);
+            this.mskCpfM.TabIndex = 40;
+            // 
             // frmMedico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,12 +393,12 @@ namespace piClinica
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtEspec;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtCpfM;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCrm;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblUsuLogado;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.MaskedTextBox mskCpfM;
     }
 }

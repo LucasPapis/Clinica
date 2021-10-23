@@ -49,7 +49,7 @@ namespace piClinica
             dgvMedicos.Columns[6].Visible = false;
             dgvMedicos.Columns[7].Visible = false;
             dgvMedicos.Columns[8].Visible = false;
-            dgvMedicos.Columns[9].HeaderText = "Ativo";
+            dgvMedicos.Columns[9].Visible = false;
         }
         private Boolean ValidaCampos()
         {
@@ -78,7 +78,7 @@ namespace piClinica
                 MessageBox.Show("Campo Senha não foi preenchido!", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (txtCpfM.Text == string.Empty)
+            if (mskCpfM.Text == string.Empty)
             {
                 MessageBox.Show("Campo CPF não foi preenchido!", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -94,7 +94,7 @@ namespace piClinica
             txtCrm.Text = string.Empty;
             txtSenhaM.Text = string.Empty;
             txtSenhaM.Enabled = true;
-            txtCpfM.Text = string.Empty;
+            mskCpfM.Text = string.Empty;
             dgvMedicos.ClearSelection();
         }
         private void preencheCampos(int index)
@@ -106,7 +106,7 @@ namespace piClinica
             txtEspec.Text = listaMed[index].Espec;
             txtSenhaM.Enabled = false;
             txtSenhaM.Text = listaMed[index].Senha;
-            txtCpfM.Text = listaMed[index].Cpf;
+            mskCpfM.Text = listaMed[index].Cpf;
         }
 
         private void btnIserir_Click(object sender, EventArgs e)
@@ -117,7 +117,7 @@ namespace piClinica
                 {
                     string senhaCrypto = Crypto.sha256encrypt(txtSenhaM.Text);
                     senhaCrypto = senhaCrypto.ToUpper();
-                    Medico m = new Medico(txtNomeM.Text, txtSobrenomeM.Text, Convert.ToInt32(txtCrm.Text), senhaCrypto, txtEspec.Text, txtCpfM.Text, string.Empty, string.Empty, 1);
+                    Medico m = new Medico(txtNomeM.Text, txtSobrenomeM.Text, Convert.ToInt32(txtCrm.Text), senhaCrypto, txtEspec.Text, mskCpfM.Text, 1);
                     m.CadastraMed();
                     MessageBox.Show("Médico cadastrado", "Médicos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNomeM.Focus();
@@ -139,9 +139,9 @@ namespace piClinica
                 {
                     string senhaCrypto = Crypto.sha256encrypt(txtSenhaM.Text);
                     senhaCrypto = senhaCrypto.ToUpper();
-                    Medico m = new Medico(Convert.ToInt32(txtIdM.Text), txtNomeM.Text, txtSobrenomeM.Text, Convert.ToInt32(txtCrm.Text), senhaCrypto, txtEspec.Text, txtCpfM.Text, string.Empty, string.Empty);
-                    MessageBox.Show("Médico alterado", "Médicos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Medico m = new Medico(Convert.ToInt32(txtIdM.Text), txtNomeM.Text, txtSobrenomeM.Text, Convert.ToInt32(txtCrm.Text), senhaCrypto, txtEspec.Text, mskCpfM.Text);
                     m.AlteraMed();
+                    MessageBox.Show("Médico alterado", "Médicos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNomeM.Focus();
                     LimpaCampos();
                     buscaBanco();
